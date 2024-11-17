@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://b8o08ugj4oek8"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/finish.gd" id="1_rdham"]
+[ext_resource type="FontFile" uid="uid://bikqewpdof1fi" path="res://Assets/Fonts/alagard.ttf" id="2_jphj1"]
+[ext_resource type="Texture2D" uid="uid://dm7y86v0rqmei" path="res://Assets/Tiles/Black.png" id="3_fnqix"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_a4m1o"]
+font = ExtResource("2_jphj1")
+
+[node name="Finish" type="Node2D"]
+script = ExtResource("1_rdham")
+
+[node name="Label" type="Label" parent="."]
+z_index = 1
+texture_filter = 1
+offset_right = 192.0
+offset_bottom = 108.0
+label_settings = SubResource("LabelSettings_a4m1o")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(192, 108)
+texture = ExtResource("3_fnqix")
+centered = false
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Timer2" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://cd4tsy6e1awlr"]
+
+[ext_resource type="Texture2D" uid="uid://dm7y86v0rqmei" path="res://Assets/Tiles/Black.png" id="1_i2yvs"]
+[ext_resource type="FontFile" uid="uid://ynqkwp76tdxi" path="res://Assets/Fonts/BMchain.TTF" id="2_5o2k8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_rmfcl"]
+font = ExtResource("2_5o2k8")
+font_size = 6
+
+[node name="Credits" type="Node2D"]
+
+[node name="Black" type="Sprite2D" parent="."]
+scale = Vector2(192, 108)
+texture = ExtResource("1_i2yvs")
+centered = false
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+offset_right = 192.0
+offset_bottom = 108.0
+text = "game made with godot
+by rockingcha1r
+
+assets used:
+limezu - Serene village
+eduardscarpato - character
+Alagard font
+https://butterymilk - gui
+pooklea - speech bubble
+bmchain font
+
+more infos on itch.io ;)"
+label_settings = SubResource("LabelSettings_rmfcl")

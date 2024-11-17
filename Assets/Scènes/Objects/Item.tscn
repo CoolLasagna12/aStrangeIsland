@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://dq11a733136hf"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/item.gd" id="1_76ov5"]
+[ext_resource type="Texture2D" uid="uid://bjseo7k667mi2" path="res://Assets/Tiles/pressE.png" id="1_uw053"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wilm5"]
+size = Vector2(44, 44)
+
+[node name="Item" type="Node2D"]
+script = ExtResource("1_76ov5")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+z_index = 10
+texture_filter = 1
+position = Vector2(0, -29)
+texture = ExtResource("1_uw053")
+
+[node name="Area" type="Area2D" parent="."]
+
+[node name="ColShape" type="CollisionShape2D" parent="Area"]
+shape = SubResource("RectangleShape2D_wilm5")
+
+[node name="DeletingTimer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="Area" to="." method="_on_area_body_entered"]
+[connection signal="body_exited" from="Area" to="." method="_on_area_body_exited"]
+[connection signal="timeout" from="DeletingTimer" to="." method="_on_deleting_timer_timeout"]

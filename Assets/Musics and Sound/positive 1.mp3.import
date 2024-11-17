@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c2ftch16nbqy7"
+path="res://.godot/imported/positive 1.mp3-25e5e2187cce1531ed5305d031fb2204.mp3str"
+
+[deps]
+
+source_file="res://Assets/Musics and Sound/positive 1.mp3"
+dest_files=["res://.godot/imported/positive 1.mp3-25e5e2187cce1531ed5305d031fb2204.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

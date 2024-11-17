@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://b53rrmjnlp4hk"]
+
+[ext_resource type="PackedScene" uid="uid://dq11a733136hf" path="res://Assets/Scènes/Objects/Item.tscn" id="1_f38tl"]
+[ext_resource type="Texture2D" uid="uid://dwrtc4e20biaf" path="res://Assets/Tiles/Wood.png" id="1_gwnuo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hrnit"]
+size = Vector2(7, 16)
+
+[node name="Wood" type="Node2D"]
+
+[node name="Item" parent="." instance=ExtResource("1_f38tl")]
+item = "Wood"
+
+[node name="Sprite2" type="Sprite2D" parent="Item"]
+texture_filter = 1
+texture = ExtResource("1_gwnuo")
+
+[node name="WoodPhysics" type="StaticBody2D" parent="Item"]
+
+[node name="ColBody" type="CollisionShape2D" parent="Item/WoodPhysics"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_hrnit")
+debug_color = Color(0, 0.64608, 0.245567, 0.42)

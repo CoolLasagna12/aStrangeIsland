@@ -1,0 +1,115 @@
+[gd_scene load_steps=16 format=3 uid="uid://c1ji2kttppr4r"]
+
+[ext_resource type="PackedScene" uid="uid://dl4euppxrvb0s" path="res://Assets/Scènes/Persons/characters.tscn" id="1_dq8yg"]
+[ext_resource type="Texture2D" uid="uid://dku7mga58uhmu" path="res://Assets/Tiles/Players/Export/Others-BoyBrown.png" id="2_r3rgg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f8bdo"]
+atlas = ExtResource("2_r3rgg")
+region = Rect2(960, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gpve7"]
+atlas = ExtResource("2_r3rgg")
+region = Rect2(1008, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hcme5"]
+atlas = ExtResource("2_r3rgg")
+region = Rect2(1056, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ghe6o"]
+atlas = ExtResource("2_r3rgg")
+region = Rect2(1104, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kx6nb"]
+atlas = ExtResource("2_r3rgg")
+region = Rect2(1152, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5t30p"]
+atlas = ExtResource("2_r3rgg")
+region = Rect2(1200, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pjxat"]
+atlas = ExtResource("2_r3rgg")
+region = Rect2(1248, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_46b5r"]
+atlas = ExtResource("2_r3rgg")
+region = Rect2(1296, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jia2v"]
+atlas = ExtResource("2_r3rgg")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b0vc2"]
+atlas = ExtResource("2_r3rgg")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d21le"]
+atlas = ExtResource("2_r3rgg")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_taxwv"]
+atlas = ExtResource("2_r3rgg")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_76bmi"]
+animations = [{
+"frames": [{
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_f8bdo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gpve7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hcme5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ghe6o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kx6nb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5t30p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pjxat")
+}, {
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_46b5r")
+}],
+"loop": false,
+"name": &"die",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jia2v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b0vc2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d21le")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_taxwv")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="BrownBoy" type="Node2D"]
+
+[node name="Characters" parent="." instance=ExtResource("1_dq8yg")]
+text = "NO TIME FOR U"
+corporate = true
+
+[node name="Sprite" type="AnimatedSprite2D" parent="Characters"]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_76bmi")
+animation = &"die"
+autoplay = "idle"
+
+[connection signal="animation_finished" from="Characters/Sprite" to="Characters" method="_on_sprite_animation_finished"]

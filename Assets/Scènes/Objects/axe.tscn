@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://sghwtglginon"]
+
+[ext_resource type="PackedScene" uid="uid://dq11a733136hf" path="res://Assets/Scènes/Objects/Item.tscn" id="1_j3i4b"]
+[ext_resource type="Texture2D" uid="uid://c7xdwc6ir4065" path="res://Assets/Tiles/Axe.png" id="2_qwsod"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j61h3"]
+size = Vector2(15, 10)
+
+[node name="Axe" type="Node2D"]
+
+[node name="Item" parent="." instance=ExtResource("1_j3i4b")]
+item = "Axe"
+
+[node name="Sprite2D" type="Sprite2D" parent="Item"]
+texture_filter = 1
+texture = ExtResource("2_qwsod")
+
+[node name="AxePhysics" type="StaticBody2D" parent="Item"]
+
+[node name="ColBody" type="CollisionShape2D" parent="Item/AxePhysics"]
+shape = SubResource("RectangleShape2D_j61h3")
+debug_color = Color(0.94993, 0.197447, 0.280767, 0.42)

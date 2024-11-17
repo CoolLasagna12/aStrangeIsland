@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=3 uid="uid://dl4euppxrvb0s"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/characters.gd" id="1_qtw6a"]
+[ext_resource type="Texture2D" uid="uid://ct7ld45wup4kg" path="res://Assets/Tiles/SpeechBubble.png" id="2_nf66c"]
+[ext_resource type="FontFile" uid="uid://ynqkwp76tdxi" path="res://Assets/Fonts/BMchain.TTF" id="3_b4blb"]
+[ext_resource type="AudioStream" uid="uid://perr1j0cu85" path="res://Assets/Musics and Sound/talkingsynth.mp3" id="4_6pvli"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hrs1w"]
+size = Vector2(50, 50)
+
+[sub_resource type="LabelSettings" id="LabelSettings_677al"]
+line_spacing = 0.0
+font = ExtResource("3_b4blb")
+font_size = 6
+font_color = Color(0, 0, 0, 1)
+outline_color = Color(1, 1, 1, 0)
+shadow_size = 0
+shadow_color = Color(1, 1, 1, 0.0588235)
+
+[node name="Characters" type="Node2D"]
+script = ExtResource("1_qtw6a")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="Collision" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_hrs1w")
+
+[node name="Bubble" type="Sprite2D" parent="."]
+visible = false
+z_index = 11
+texture_filter = 1
+position = Vector2(1, -43)
+scale = Vector2(2, 2)
+texture = ExtResource("2_nf66c")
+
+[node name="Label" type="Label" parent="Bubble"]
+z_index = 11
+offset_left = -9.0
+offset_top = -6.0
+offset_right = 26.0
+offset_bottom = 11.0
+scale = Vector2(0.5, 0.5)
+text = "HI BRO HOW R U?"
+label_settings = SubResource("LabelSettings_677al")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+
+[node name="BubbleTimer" type="Timer" parent="Bubble"]
+one_shot = true
+
+[node name="TalkSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_6pvli")
+volume_db = 15.0
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="Bubble/BubbleTimer" to="." method="_on_bubble_timer_timeout"]

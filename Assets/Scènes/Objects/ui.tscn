@@ -1,0 +1,179 @@
+[gd_scene load_steps=18 format=3 uid="uid://cbwdqwg0202cx"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/ui.gd" id="1_wu30i"]
+[ext_resource type="FontFile" uid="uid://bikqewpdof1fi" path="res://Assets/Fonts/alagard.ttf" id="2_hi4oh"]
+[ext_resource type="Texture2D" uid="uid://cf0ixa8xi165l" path="res://Assets/Tiles/Timing.png" id="3_j75o2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xerxl"]
+font = ExtResource("2_hi4oh")
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ycul"]
+atlas = ExtResource("3_j75o2")
+region = Rect2(0, 0, 6, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u5rtx"]
+atlas = ExtResource("3_j75o2")
+region = Rect2(6, 0, 6, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ajlbe"]
+atlas = ExtResource("3_j75o2")
+region = Rect2(12, 0, 6, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yrfbf"]
+atlas = ExtResource("3_j75o2")
+region = Rect2(18, 0, 6, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oy5g3"]
+atlas = ExtResource("3_j75o2")
+region = Rect2(24, 0, 6, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hsnft"]
+atlas = ExtResource("3_j75o2")
+region = Rect2(30, 0, 6, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5er8j"]
+atlas = ExtResource("3_j75o2")
+region = Rect2(0, 8, 6, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p8jl6"]
+atlas = ExtResource("3_j75o2")
+region = Rect2(6, 8, 6, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5gykv"]
+atlas = ExtResource("3_j75o2")
+region = Rect2(12, 8, 6, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iiplk"]
+atlas = ExtResource("3_j75o2")
+region = Rect2(18, 8, 6, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8jpb3"]
+atlas = ExtResource("3_j75o2")
+region = Rect2(24, 8, 6, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3505o"]
+atlas = ExtResource("3_j75o2")
+region = Rect2(30, 8, 6, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v7xty"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ycul")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u5rtx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ajlbe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yrfbf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oy5g3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hsnft")
+}],
+"loop": true,
+"name": &"blue",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5er8j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p8jl6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5gykv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iiplk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8jpb3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3505o")
+}],
+"loop": true,
+"name": &"red",
+"speed": 10.0
+}]
+
+[node name="UI" type="Node2D"]
+script = ExtResource("1_wu30i")
+
+[node name="yearText" type="Label" parent="."]
+z_index = 10
+texture_filter = 1
+offset_top = 20.0
+offset_right = 192.0
+offset_bottom = 35.0
+text = "Year 0"
+label_settings = SubResource("LabelSettings_xerxl")
+horizontal_alignment = 1
+
+[node name="yearTextTimer" type="Timer" parent="yearText"]
+wait_time = 0.05
+one_shot = true
+
+[node name="TimeLeft" type="Node2D" parent="."]
+
+[node name="TimeLeftTimer" type="Timer" parent="TimeLeft"]
+one_shot = true
+
+[node name="Bubble1" type="AnimatedSprite2D" parent="TimeLeft"]
+z_index = 10
+texture_filter = 1
+position = Vector2(76, 100)
+sprite_frames = SubResource("SpriteFrames_v7xty")
+animation = &"blue"
+autoplay = "blue"
+
+[node name="Bubble2" type="AnimatedSprite2D" parent="TimeLeft"]
+z_index = 10
+texture_filter = 1
+position = Vector2(84, 100)
+sprite_frames = SubResource("SpriteFrames_v7xty")
+animation = &"blue"
+autoplay = "blue"
+
+[node name="Bubble3" type="AnimatedSprite2D" parent="TimeLeft"]
+z_index = 10
+texture_filter = 1
+position = Vector2(92, 100)
+sprite_frames = SubResource("SpriteFrames_v7xty")
+animation = &"blue"
+autoplay = "blue"
+
+[node name="Bubble4" type="AnimatedSprite2D" parent="TimeLeft"]
+z_index = 10
+texture_filter = 1
+position = Vector2(100, 100)
+sprite_frames = SubResource("SpriteFrames_v7xty")
+animation = &"red"
+autoplay = "blue"
+
+[node name="Bubble5" type="AnimatedSprite2D" parent="TimeLeft"]
+z_index = 10
+texture_filter = 1
+position = Vector2(108, 100)
+sprite_frames = SubResource("SpriteFrames_v7xty")
+animation = &"red"
+autoplay = "blue"
+
+[node name="Bubble6" type="AnimatedSprite2D" parent="TimeLeft"]
+z_index = 10
+texture_filter = 1
+position = Vector2(116, 100)
+sprite_frames = SubResource("SpriteFrames_v7xty")
+animation = &"blue"
+autoplay = "red"
+
+[connection signal="timeout" from="yearText/yearTextTimer" to="." method="_on_year_text_timer_timeout"]
+[connection signal="timeout" from="TimeLeft/TimeLeftTimer" to="." method="_on_time_left_timer_timeout"]
